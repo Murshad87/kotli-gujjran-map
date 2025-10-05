@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotli Gujjran Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2b5d99;
+      margin: 20px 0;
+    }
+    #map {
+      height: 600px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .info {
+      text-align: center;
+      margin: 15px;
+      font-size: 16px;
+    }
+    .info a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .info a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 14px;
+      color: #666;
+    }
+    footer a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kotli Gujjran, Samahni Tehsil, Bhimber District, Azad Kashmir, Pakistan</h1>
+  <div id="map"></div>
+
+  <div class="info">
+    <p>
+      🔗 Wikipedia: 
+      <a href="https://en.wikipedia.org/wiki/Kotli_Gujjran" target="_blank">
+        Kotli Gujjran – Wikipedia
+      </a>
+    </p>
+    <p>
+      📘 Facebook official page:  
+      <a href="https://www.facebook.com/p/Kotli-Gujjran-Azad-Kashmir-61565926834376/" target="_blank">
+        Kotli Gujjran Facebook
+      </a>
+    </p>
+    <p>📍 Coordinates: <b>33°11′19″N, 74°03′05″E</b></p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const kotliGujjran = [33.184844, 74.049395];
+    const map = L.map('map').setView(kotliGujjran, 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker(kotliGujjran)
+      .addTo(map)
+      .bindPopup('<b>Kotli Gujjran</b><br>Samahni Tehsil, Bhimber District<br>Azad Kashmir, Pakistan')
+      .openPopup();
+
+    const polygonCoords = [
+      [33.1856, 74.0478],
+      [33.1850, 74.0503],
+      [33.1840, 74.0506],
+      [33.1834, 74.0487],
+      [33.1845, 74.0475]
+    ];
+
+    L.polygon(polygonCoords, {
+      color: 'blue',
+      fillColor: '#3388ff',
+      fillOpacity: 0.3
+    }).addTo(map).bindPopup('Approximate boundary of Kotli Gujjran');
+  </script>
+
+  <footer>
+    &copy; 2025 Kotli Gujjran Map Project. All rights reserved. <br>
+    Developed by Murshad87 | <a href="https://www.facebook.com/p/Kotli-Gujjran-Azad-Kashmir-61565926834376/" target="_blank">Official Facebook Page</a>
+  </footer>
+</body>
+</html>
